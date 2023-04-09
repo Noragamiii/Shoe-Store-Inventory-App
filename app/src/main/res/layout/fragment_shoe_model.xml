@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoeModel"
+            type="com.udacity.shoestore.UIViewModel" />
+    </data>
+
+    <!-- I used ConstraintLayout here, so I can move the views anywhere -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/shoe"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/nike_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <TextView
+            android:id="@+id/nameshoe"
+            style="@style/textApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Nike"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toEndOf="@id/shoe"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/companyshoe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="KEM INC."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/nameshoe"
+            app:layout_constraintTop_toBottomOf="@id/nameshoe" />
+
+        <Button
+            android:id="@+id/sizeshoe"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/circle_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9"
+            tools:textColor="@color/colorBlack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

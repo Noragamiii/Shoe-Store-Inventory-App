@@ -1,0 +1,58 @@
+package com.udacity.shoestore.ui.login
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
+import com.udacity.shoestore.UIViewModel
+import com.udacity.shoestore.databinding.FragmentLoginBinding
+
+class LoginFragment : Fragment() {
+
+    private lateinit var binding: FragmentLoginBinding
+    private lateinit var viewModel: UIViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_login,
+            container,
+            false
+        )
+
+        //init ViewModel
+        viewModel = ViewModelProvider(requireActivity()).get(UIViewModel::class.java)
+        binding.loginScreen = viewModel
+
+        binding.setLifecycleOwner(this)
+
+        viewModel.eventLogin.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                gotoWelcomeScreen()
+                viewModel.gotoWelcomeComplete()
+            }
+        })
+
+        (activity as AppCompatActivity).supportActionBar?.hide()
+
+        return binding.root
+    }
+
+    private fun gotoWelcomeScreen() {
+        findNavController().navigate(LoginFragmentDirections.actionLoginToWelcome())
+    }
+
+}

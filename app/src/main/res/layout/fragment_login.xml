@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.LoginFragment">
+
+    <data>
+        <variable
+            name="loginScreen"
+            type="com.udacity.shoestore.UIViewModel" />
+    </data>
+
+    <!-- I used ConstraintLayout here, so I can move the views anywhere -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="@dimen/alpha_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shoe_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/Tiltle"
+            android:textColor="#331D53"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/email_input_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/email_input_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/emaiInputTitle"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@id/email_input"
+            app:layout_constraintStart_toStartOf="@id/email_input"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:background="#3F51B5"
+            android:text="Sign In ->"
+            android:onClick="@{()->loginScreen.gotoWelcomeScreen()}"
+            android:textColor="#F4F4F6"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="32dp"
+            android:background="#3F51B5"
+            android:text="Sign Up"
+            android:onClick="@{()->loginScreen.gotoWelcomeScreen()}"
+            android:textColor="#F4F4F6"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
+            app:layout_constraintVertical_bias="0.206" />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="354dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="#FAF6F6"
+            android:ems="15"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/password_title"
+            app:layout_constraintEnd_toEndOf="@id/password_input"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@id/password_title" />
+
+        <TextView
+            android:id="@+id/password_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/Password_Title"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@id/password_input"
+            app:layout_constraintStart_toStartOf="@id/password_input" />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="354dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="#FAF6F6"
+            android:ems="15"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/sign_in_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

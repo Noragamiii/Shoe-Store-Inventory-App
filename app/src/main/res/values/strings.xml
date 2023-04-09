@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="emaiInputTitle">Input Email</string>
+    <string name="Login_Title">Login</string>
+    <string name="Password_Title">Password</string>
+    <string name="Tiltle">Sign in to your account</string>
+    <string name="hint_email">example@email.com</string>
+    <string name="hint_password">Your password</string>
+    <string name="next">Next</string>
+    <string name="welcome">Welcome</string>
+
+    <string name="welcome_text">Welcome to our shoe shopping app!\nWe hope you find the perfect pair of shoes to fit your style and needs.
+    </string>
+</resources>
